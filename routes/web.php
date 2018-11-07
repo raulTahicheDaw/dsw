@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/pesos/{programacion_id}','PesoController@pesos')->name("pesos");
+Route::post('pesos/guardar','PesoController@guardar')->name("guardar_pesos");
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,3 +22,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
